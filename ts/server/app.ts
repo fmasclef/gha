@@ -8,6 +8,7 @@
 import express, { Request, Response } from 'express';
 
 import route from './route';
+import os from 'os';
 
 const app = express();
 
