@@ -16,7 +16,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: gha-everything
-          path: **/
+          path: ./**/*
           retention-days: 1
   lint:
     needs: setup
@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: gha-everything
-          path: **/
+          path: ./**/*
           retention-days: 1
  test:
     needs: build
