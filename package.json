@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ./ts --ext .ts",
+    "lint": "eslint --max-warnings 0 ./ts --ext .ts",
     "test": "NODE_ENV=test nyc mocha dist/tests/**/*.js --timeout 10000",
     "build:server": "NODE_ENV=production tsc -p ./ts",
     "build:server:dev": "NODE_ENV=development tsc -w -p ./ts",
