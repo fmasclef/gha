@@ -11,13 +11,16 @@ jobs:
       - run: npm install
   lint:
     needs: setup
+    runs-on: ubuntu-latest
     steps:
       - run: npm run lint
   build:
     needs: lint
+    runs-on: ubuntu-latest
     steps:
       - run: npm run build:server
   test:
     needs: build
+    runs-on: ubuntu-latest
     steps:
       - run: npm test
