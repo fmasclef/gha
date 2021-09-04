@@ -1,0 +1,41 @@
+{
+  "name": "gha",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./ts --ext .ts",
+    "test": "NODE_ENV=test nyc mocha dist/tests/**/*.js --timeout 10000",
+    "build:server": "NODE_ENV=production tsc -p ./ts",
+    "build:server:dev": "NODE_ENV=development tsc -w -p ./ts",
+    "server:dev": "NODE_ENV=development nodemon -w dist dist/server.js myserver",
+    "stop": "pkill -SIGINT myserver"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fmasclef/gha.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fmasclef/gha/issues"
+  },
+  "homepage": "https://github.com/fmasclef/gha#readme",
+  "devDependencies": {
+    "@types/express": "*",
+    "@types/mocha": "*",
+    "@typescript-eslint/eslint-plugin": "*",
+    "@typescript-eslint/parser": "*",
+    "chai": "*",
+    "chai-http": "*",
+    "eslint": "*",
+    "eslint-plugin-import": "*",
+    "mocha": "*",
+    "nodemon": "*",
+    "nyc": "*",
+    "typescript": "*"
+  },
+  "dependencies": {
+    "express": "*"
+  }
+}
