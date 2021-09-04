@@ -1,7 +1,7 @@
 name: everything
 on: [push]
 jobs:
-  lint-project:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -10,7 +10,8 @@ jobs:
           node-version: '14'
       - run: npm install
       - run: npm run lint
-  build-project:
+  build:
+    needs: lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,7 +20,8 @@ jobs:
           node-version: '14'
       - run: npm install
       - run: npm run build:server
-  test-project:
+  test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
