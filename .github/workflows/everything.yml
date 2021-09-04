@@ -1,7 +1,7 @@
 name: everything
 on: [push]
 jobs:
-  lint:
+  setup:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -9,25 +9,15 @@ jobs:
         with:
           node-version: '14'
       - run: npm install
+  lint:
+    needs: setup
+    steps:
       - run: npm run lint
   build:
     needs: lint
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - run: npm install
       - run: npm run build:server
   test:
     needs: build
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - run: npm install
-      - run: npm run build:server
       - run: npm test
