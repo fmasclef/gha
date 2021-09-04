@@ -44,7 +44,7 @@ jobs:
           name: gha-everything
           path: ./**/*
           retention-days: 1
- test:
+  test:
     needs: build
     runs-on: ubuntu-latest
     steps:
