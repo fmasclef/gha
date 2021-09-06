@@ -1,9 +1,9 @@
-name: build
+name: compliance
 on:
-  push:
+  pull_request:
     branches: [ main ]
 jobs:
-  build-project:
+  compliance:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -11,4 +11,6 @@ jobs:
         with:
           node-version: '14'
       - run: npm install
+      - run: npm run lint
       - run: npm run build:server
+      - run: npm test
