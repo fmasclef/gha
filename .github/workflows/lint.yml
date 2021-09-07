@@ -1,5 +1,7 @@
 name: lint
-on: [push]
+on:
+  push:
+    branches: [ main ]
 jobs:
   lint-project:
     runs-on: ubuntu-latest
