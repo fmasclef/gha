@@ -8,7 +8,7 @@
 import { RequestHandler, Request, Response } from 'express';
 
 export const hello: RequestHandler = async (req: Request, res: Response) => {
-    res.json({ status: "OK", greetings: "Hello!!!" })
+    res.json({ status: "OK", greetings: "Hello!" })
 };
 
 export default {
